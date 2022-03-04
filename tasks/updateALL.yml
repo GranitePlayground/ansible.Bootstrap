@@ -1,0 +1,24 @@
+--- 
+- 
+  name: "Update 'CentOS'"
+  tags: always
+  yum: 
+    update_cache: true
+    update_only: true
+  when: "ansible_distribution == \"CentOS\""
+- 
+  name: "Update 'Debian Based'"
+  tags: always
+  apt: 
+    update_cache: true
+    upgrade: dist
+  become: true
+  when: "ansible_distribution in[\"Ubuntu\", \"Debian\", \"Pop!_OS\"]"
+- 
+  name: "Update 'MacOSX'"
+  tags: always
+  become: false
+  community.general.homebrew: 
+    update_homebrew: true
+    upgrade_all: true
+  when: "ansible_distribution == \"MacOSX\""

@@ -1,0 +1,24 @@
+---
+-
+  name: Add admin user - 'colin'
+  user:
+    name: {{ user_name }}
+    password: {{ user_pass }}
+    shell: /bin/bash
+    group: sudo
+    append: yes
+-
+  name: Add 'colin' ssh key
+  tags: always
+  authorized_key:
+    user: colin
+    key: ""
+-
+  name: Add 'colin' Sudoers File
+  tags: always
+  copy:
+    src: files/ . . .
+    dest: /etc/sudoers.d/ . . .
+    owner: root
+    group: root
+    mode: 0440
