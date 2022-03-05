@@ -1,0 +1,45 @@
+- hosts: all
+#  remote_user: root
+  tasks:
+    - name: Add 'admin' Group
+      group: name=admin state=present
+#
+#    - name: Setup Admin Users
+#      user: >
+#        name=colin
+#        groups=admin
+#        shell=/bin/bash
+#        state=present
+#
+#    - name: Add 'admin group' to Sudoers file
+#      lineinfile: >
+#        dest=/etc/sudoers
+#        regexp='^%ADMIN ALL\='
+#        line='ADMIN ALL=(ALL) NOPASSWD:ALL'
+#        state=present
+#        validate='visudo -cf %s'
+#
+#    - name: Install OpenSSH
+#      package: name=openssh-server state=present
+#
+#    - name: Copy admin public SSH Key
+#      authorized_key: >
+#        user: colin
+#        key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBQdxa5ODGFckOIv2MQ65zL9l27YQvJwjZwbWaJ+0rv4 colin FarmNet.Lab testing Key
+#        state: present
+
+#    - name: root SSH Lockout
+#      lineinfile: >
+#        dest: /etc/ssh/sshd_config
+#        regexp: "{{  item.regexp }}"
+#        line: "{{  item.line }}"
+#        state: present
+#      notify: restart sshd
+#      with_items:
+#        - { regexp: "^PermitRootLogin", line: "PermitRootLogin no" }
+#        - { regexp: "^PasswordAuthentication", line:"PasswordAuthentication no" }
+#        - { regexp: "^GSSAPIAuthentication", line: "GSSAPIAthentication no" }
+#
+#  handlers:
+#    - name: restart sshd
+#      service: name=ssh state=restarted

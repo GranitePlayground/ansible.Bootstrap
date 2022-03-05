@@ -3,9 +3,11 @@
 - hosts: all
   name: Boostrap HomeLab Servers to Base-Config
   become: true
+  #remote_user: root
 
   pre_tasks:
-  - include_tasks: tasks/updateALL.yml
+  - include_tasks: tasks/update-systems.yml
   
   tasks:
-  - include_tasks: tasks/USER-HAL_ansible.yml
+  - include_tasks: tasks/user-HAL_ansible.yml
+#  - include_tasks: tasks/user-admin.yml

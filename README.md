@@ -5,15 +5,23 @@ Requirements:
 - SSH & Python
 
 Uses:
-- Create Ansible User
-- admin user -Core Manager
-    - ssh key
-    - sudoer/wheel status
+    - Create Ansible User
+    - admin user -Core Manager
+        - ssh key
+        - sudoer/wheel status
 
-- Manage Connection Perameters
+Manage Connection Perameters
     - ssh key
     - ssh port
 
-- Server Security
+Server Security
     - fail2ban
     - firewall
+
+Lockout Root
+    - turn off ssh password access to root
+    - !!! this will brake Bootstrap from running again. !!!
+
+###################
+
+Ideas
