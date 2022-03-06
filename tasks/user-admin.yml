@@ -1,11 +1,22 @@
 ---
 -
+  name: Add 'admin' Group
+  group: name=admin state=present
+-
+  name: Add 'admin group' to Sudoers file
+  lineinfile: >
+    dest=/etc/sudoers
+    regexp='^%ADMIN ALL\='
+    line='ADMIN ALL=(ALL) NOPASSWD:ALL'
+    state=present
+    validate='visudo -cf %s'  
+-
   name: Add admin user - 'colin'
   user:
-    name: {{ user_name }}
-    password: {{ user_pass }}
+    name: colin
+#    password: {{ user_pass }}
     shell: /bin/bash
-    group: sudo
+    groups: admin
     append: yes
 -
   name: Add 'colin' ssh pub key
@@ -14,11 +25,11 @@
     user: colin
     key: ""
 -
-  name: Add 'colin' Sudoers File
-  tags: always
-  copy:
-    src: files/ . . .
-    dest: /etc/sudoers.d/ . . .
-    owner: root
-    group: root
-    mode: 0440
+#  name: Add 'colin' Sudoers File
+#  tags: always
+#  copy:
+#    src: files/ . . .
+#    dest: /etc/sudoers.d/ . . .
+#    owner: root
+#    group: root
+#    mode: 0440
