@@ -1,0 +1,14 @@
+---
+-
+  name: Disable 'root' SSH Access
+  become: true
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "{{  item.regexp }}"
+    line: "{{  item.line }}"
+    state: present
+#  notify: restart sshd
+  with_items:
+    - { regexp: "^#PermitRootLogin", line: "PermitRootLogin no" }
+    - { regexp: "^#PasswordAuthentication", line: "PasswordAuthentication no" }
+    - { regexp: "^#GSSAPIAuthentication", line: "GSSAPIAthentication no" }

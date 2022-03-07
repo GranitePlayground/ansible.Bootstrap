@@ -2,13 +2,15 @@
 
 - hosts: all
   name: Boostrap HomeLab Servers to Base-Config
-  become: true
-###  remote_user: root
+  become_user: root
+#  gather_facts: false
 
-  pre_tasks:
-  - include_tasks: tasks/update-systems.yml
+#  pre_tasks:
+#  - include_tasks: tasks/update-systems.yml
   
   tasks:
   - include_tasks: tasks/packages.yml
   - include_tasks: tasks/user-admin.yml
-#  - include_tasks: tasks/user-HAL_ansible.yml
+  - include_tasks: tasks/user-HAL_ansible.yml
+###  security section this may Lock ansible and you out
+##  - include_tasks: tasks/rootSSH-lockout.yml

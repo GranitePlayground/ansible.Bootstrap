@@ -4,12 +4,13 @@
   group: name=admin state=present
 -
   name: Add 'admin group' to Sudoers file
-  lineinfile: >
-    dest=/etc/sudoers
-    regexp='^%ADMIN ALL\='
-    line='ADMIN ALL=(ALL) NOPASSWD:ALL'
-    state=present
-    validate='visudo -cf %s'  
+  become: true
+  lineinfile: 
+    dest: /etc/sudoers
+    regexp: '^%ADMIN ALL\='
+    line: 'ADMIN ALL=(ALL) NOPASSWD:ALL'
+    state: present
+    validate: 'visudo -cf %s'  
 -
   name: Add admin user - 'colin'
   user:
@@ -23,13 +24,15 @@
   tags: always
   authorized_key:
     user: colin
-    key: ""
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBQdxa5ODGFckOIv2MQ65zL9l27YQvJwjZwbWaJ+0rv4 colin FarmNet.Lab testing Key"
+    state: present
 -
-#  name: Add 'colin' Sudoers File
-#  tags: always
-#  copy:
-#    src: files/ . . .
-#    dest: /etc/sudoers.d/ . . .
-#    owner: root
-#    group: root
-#    mode: 0440
+  name: Add 'colin' Sudoers File
+  tags: always
+  become: true
+  copy:
+    src: files/colin
+    dest: /etc/sudoers.d/colin
+    owner: root
+    group: root
+    mode: 0440
