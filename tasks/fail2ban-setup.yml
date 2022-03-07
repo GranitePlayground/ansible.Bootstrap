@@ -1,0 +1,14 @@
+---
+-
+  name: Install Fail2ban
+  become: true
+  package: name=fail2ban state=present
+#-
+#  name: Fail2ban Config
+-
+  name: Start Fail2ban
+  become: true
+  service:
+    name: fail2ban
+    enabled: no
+    state: stopped

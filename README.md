@@ -1,6 +1,8 @@
 # ansible.Bootstrap
 pull system to usable from fresh install
 
+$  ansible-playbook bootstrap.yml
+
 Requirements:
 - SSH & Python
 
