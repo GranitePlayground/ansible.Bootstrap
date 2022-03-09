@@ -1,14 +1,29 @@
 ---
 -
-  name: Install Fail2ban
+  name: Install Fail2ban "Debian"
   become: true
   package: name=fail2ban state=present
-#-
-#  name: Fail2ban Config
+  when: "ansible_distribution in[\"Ubuntu\", \"Debian\", \"Pop!_OS\"]"
+-
+  # Extra Packages for Enterprise Linux
+  name: Install EPEL 'CentOS' 
+  become: true
+  package: name=epel-release state=present
+  when: "ansible_distribution == \"CentOS\""
+-
+  name: Install Fail2ban "CentOS"
+  become: true
+  package: name=fail2ban state=present
+  when: "ansible_distribution == \"CentOS\""
+-
+#  name: Configure Fail2ban
+#  lineinfile:
+#    dest: /etc/fail2ban
+#    regexp: '^'
 -
   name: Start Fail2ban
   become: true
   service:
     name: fail2ban
-    enabled: no
-    state: stopped
+    enabled: yes
+    state: restarted
