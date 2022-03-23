@@ -1,8 +1,10 @@
 #servers to be managed can be placed here by IP Address or working DNS name
 
-#ubtest
-#uSv-Testing
-#uDt-Testing
+[testing]
+ubtest
+uSv-Testing
+uDt-Testing
 #centDt-Testing
 
-pi48b
+[production]
+#pi48b
