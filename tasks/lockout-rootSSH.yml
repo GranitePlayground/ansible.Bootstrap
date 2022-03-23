@@ -1,7 +1,6 @@
 ---
 -
   name: Disable 'root' SSH Access
-  become: true
   lineinfile:
     dest: /etc/ssh/sshd_config
     regexp: "{{  item.regexp }}"
