@@ -13,7 +13,7 @@
     update_cache: true
     upgrade: dist
   when: "ansible_distribution in[\"Ubuntu\", \"Debian\", \"Pop!_OS\"]"
-- 
+#- 
 #  name: "Update 'MacOSX'"
 #  tags: always
 #  become: false

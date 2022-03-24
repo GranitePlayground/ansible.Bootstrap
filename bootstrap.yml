@@ -16,5 +16,5 @@
   - include_tasks: tasks/user-HAL_ansible.yml
 ###  security section this may Lock ansible and you out
 ##  - include_tasks: tasks/remove-userDefault.yml
-#  - include_tasks: tasks/setup-fail2ban.yml
-#  - include_tasks: tasks/lockout-rootSSH.yml
+  - include_tasks: tasks/setup-fail2ban.yml
+  - include_tasks: tasks/lockout-rootSSH.yml

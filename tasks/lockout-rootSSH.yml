@@ -10,4 +10,5 @@
   with_items:
     - { regexp: "^#PermitRootLogin", line: "PermitRootLogin no" }
     - { regexp: "^#PasswordAuthentication", line: "PasswordAuthentication no" }
-    - { regexp: "^#GSSAPIAuthentication", line: "GSSAPIAthentication no" }
+### The following line is braking CentOS  ###  Seems to be working with Debian based.
+    - { regexp: "^#GSSAPIAuthentication", line: "GSSAPIAuthentication no" }
