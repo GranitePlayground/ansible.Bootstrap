@@ -4,7 +4,7 @@
   group: name=admin state=present
 -
   name: Add 'admin group' to Sudoers file
-  become: true
+  tags: always
   lineinfile: 
     dest: /etc/sudoers
     regexp: '^%ADMIN ALL\='
@@ -13,6 +13,7 @@
     validate: 'visudo -cf %s'  
 -
   name: Add admin user - 'colin'
+  tags: always
   user:
     name: colin
 #    password: {{ user_pass }}
@@ -24,12 +25,11 @@
   tags: always
   authorized_key:
     user: colin
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBQdxa5ODGFckOIv2MQ65zL9l27YQvJwjZwbWaJ+0rv4 colin FarmNet.Lab testing Key"
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjy3RxyTuH7vB+AElYkEZdzr9JwoE4uQgOdLrp5xSwR # cTesting-Key = colin Testin_FarmNet.lab Key"
     state: present
 -
   name: Add 'colin' Sudoers File
   tags: always
-  become: true
   copy:
     src: files/colin
     dest: /etc/sudoers.d/colin

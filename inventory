@@ -1,8 +1,17 @@
 #servers to be managed can be placed here by IP Address or working DNS name
 
+<<<<<<< HEAD
+=======
+[testing]
+>>>>>>> a1d02d5a3cdbe4ceb2b15a43916c49986f4a7291
 ubtest
 uSv-Testing
 uDt-Testing
 centDt-Testing
 
+<<<<<<< HEAD
 #pi48b
+=======
+[production]
+#pi48b
+>>>>>>> a1d02d5a3cdbe4ceb2b15a43916c49986f4a7291
