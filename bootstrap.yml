@@ -6,8 +6,8 @@
   become_user: root
 #  gather_facts: false
 
-#  pre_tasks:
-#  - include_tasks: tasks/update-systems.yml
+ pre_tasks:
+  - include_tasks: tasks/update-systems.yml
 
   tasks:
 #  - include_tasks: tasks/base-systemsetup.yml
