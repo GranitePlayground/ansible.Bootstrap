@@ -1,17 +1,18 @@
 #servers to be managed can be placed here by IP Address or working DNS name
 
-<<<<<<< HEAD
-=======
+#deskPlay
+
+#netPi
+pi48b
+
 [testing]
->>>>>>> a1d02d5a3cdbe4ceb2b15a43916c49986f4a7291
-ubtest
 uSv-Testing
 uDt-Testing
-centDt-Testing
+ubtest
+##centDt-Testing not working
 
-<<<<<<< HEAD
-#pi48b
-=======
-[production]
-#pi48b
->>>>>>> a1d02d5a3cdbe4ceb2b15a43916c49986f4a7291
+[deb]
+uSv-Testing
+uDt-Testing
+ubtest
+
